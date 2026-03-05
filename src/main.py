@@ -1,33 +1,19 @@
 import sys
 
-def fifo(k, m):
-    cache = set()
-    queue = []
-    misses = 0
+import input_parser
 
-    for l in m:
-        if l not in cache:
-            misses += 1
-            if len(cache) == k:
-                deleted = queue.pop(0)
-                cache.remove(deleted)
-            cache.add(l)
-            queue.append(l)
-    return misses
+def main():
+    try:
+        lines = sys.stdin.readlines()
 
-def lru(k, m):
-    cache = {}
-    misses = 0
+        k, m = input_parser.parse_input(lines)
+        print(k)
+        print(m)
 
-    for l in m:
-        if l in cache:
-            del cache[l]
-            cache[l] = True
-        else: 
-            misses += 1
-            if len(cache) == k:
-                deleted = next(iter(cache))
-                del cache[deleted]
-            cache[l] = True
-    return misses
+    except Exception as e:
+        sys.stderr.write(f"Error: {e}\n")
+    
 
+
+if __name__ == "__main__":
+    main()
