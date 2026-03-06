@@ -56,16 +56,18 @@ The programs are designed to communicate via **Standard Input/Output (stdin/stdo
 | File2 | 20 | 200 | 70 | 68 | 40 |
 | File3 | 3 | 50 | 19 | 18 | 12 |
 
-OPTFF consistently has the least amount of misses for each input file
-FIFO and LRU have a similar amount of misses for each input file
+OPTFF consistently has the least amount of misses for each input file. This makes sense as it is aware of the request in the cache that will be requested farthest in the future so it can remove the ID in the cache that won't be seen again for the longest.
+FIFO and LRU have a similar amount of misses for each input file. This also makes sense because our request sequence was randomized so removing the least recent ID placed in the cache (FIFO) or the least recently used ID (LRU) should not have any advantage against each other.
 
 ---
 
 ### Question 2
-For k = 3, there is a request sequence where OPTFF has less misses than LRU and FIFO
+For k = 3, there is a request sequence where OPTFF has less misses than LRU.
 Sequence:
 3 5
 1 2 3 4 1
+
+In this request sequence, OPTFF incurs 4 misses while LRU incurs 5 misses.
 
 ---
 
@@ -84,4 +86,3 @@ Suppose A and OPTFF start the beginning of a sequence the same but change at ste
 With a new schedule A', that is the same A except it chooses to evict p instead of q at step i+1. Since page p is the page needed furthest, any later requests for q ust happen before the next request for p. If p or q is ever requested again A' will get a hit since it kept q in the cache while A will get a miss and has to evict a page to get back q.
 
 If we make algorithm A evict page p at that specific time to fix the miss, the cache states of A and A' will be the same again. With this swap the new schedule A' matches OPTFF for an extra step without getting any extra misses compared to schedule A. By doing this exchange repeatedly for every step where the algorithms differ, we can change the algorithm A into OPTFF without increasing the miss count, proving that OPTFF is optimal.
-#### 1. 
