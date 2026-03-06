@@ -35,7 +35,6 @@ The programs are designed to communicate via **Standard Input/Output (stdin/stdo
 
 ## Assumptions
 
-
 ### Input Handling
 
 * **Strict Formatting:** The input parser is strict. It expects exactly 2 non-empty lines. Blank lines in the middle will cause an error (to prevent parsing malformed data). The first line expects k (cache capacity) followed by a space and then m (the # of requests). Second line expects an m number of requests, each as an Integer ID and spaced out. Additionally, you cannot input negative numbers for m or k. However, you can include a variable number of spaces between each number on a line.
@@ -46,3 +45,19 @@ The programs are designed to communicate via **Standard Input/Output (stdin/stdo
 * It is assumed the user runs commands from the root of the repository (e.g., `python3 src/main.py` rather than `cd src; python3 main.py`).
 
 ---
+
+## Written Component
+
+### Question 1
+
+
+---
+
+### Question 2
+
+
+---
+
+### Question 3
+
+#### 1. 
