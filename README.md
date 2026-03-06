@@ -70,5 +70,18 @@ Sequence:
 ---
 
 ### Question 3
+Prove OPTFF is Optimal
+Let OPTFF be Belady’s Farthest-in-Future algorithm.
 
+Let ( A ) be any offline algorithm that knows the full request sequence.
+
+Prove that the number of misses of OPTFF is no larger than that of ( A ) on any fixed sequence.
+
+Proof:
+
+Suppose A and OPTFF start the beginning of a sequence the same but change at step i+1 when a new page causes a miss. To make space in the cache OPTFF evicts page p which is the furthest request, while algorithm A evicts a different page q.
+
+With a new schedule A', that is the same A except it chooses to evict p instead of q at step i+1. Since page p is the page needed furthest, any later requests for q ust happen before the next request for p. If p or q is ever requested again A' will get a hit since it kept q in the cache while A will get a miss and has to evict a page to get back q.
+
+If we make algorithm A evict page p at that specific time to fix the miss, the cache states of A and A' will be the same again. With this swap the new schedule A' matches OPTFF for an extra step without getting any extra misses compared to schedule A. By doing this exchange repeatedly for every step where the algorithms differ, we can change the algorithm A into OPTFF without increasing the miss count, proving that OPTFF is optimal.
 #### 1. 
