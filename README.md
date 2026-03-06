@@ -50,6 +50,14 @@ The programs are designed to communicate via **Standard Input/Output (stdin/stdo
 
 ### Question 1
 
+| Input File | k | m | FIFO | LRU | OPTFF |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| File1 | 5 | 100 | 49 | 52 | 33 |
+| File2 | 20 | 200 | 70 | 68 | 40 |
+| File3 | 3 | 50 | 19 | 18 | 12 |
+
+OPTFF consistently has the least amount of misses for each input file
+FIFO and LRU have a similar amount of misses for each input file
 
 ---
 
