@@ -63,8 +63,11 @@ FIFO and LRU have a similar amount of misses for each input file. This also make
 
 ### Question 2
 For k = 3, there is a request sequence where OPTFF has less misses than LRU.
+
 Sequence:
+
 3 5
+
 1 2 3 4 1
 
 In this request sequence, OPTFF incurs 4 misses while LRU incurs 5 misses.
